@@ -5,7 +5,9 @@ services:
     build: .
     environment:
       - SUPER_MINI_DIVAR_DB_URL=postgresql://postgres:postgres@db:5432/postgres
-    command: python main.py
+    command: uvicorn main:app --host=0.0.0.0 --reload
+    ports:
+      - 8000:8000
     depends_on:
       - db
   db:
