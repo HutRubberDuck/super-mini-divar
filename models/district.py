@@ -1,7 +1,7 @@
-from sqlalchemy.sql.expression import null
-from sqlalchemy.orm import declarative_base, relationship
-from sqlalchemy import String, Boolean, Integer, Column, Text, ForeignKey
-from models import Base
+from sqlalchemy import String, Integer, Column, ForeignKey
+from sqlalchemy.orm import relationship
+
+from models.database import Base
 
 
 class District(Base):

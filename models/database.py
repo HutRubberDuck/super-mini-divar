@@ -1,6 +1,7 @@
+from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base
-from sqlalchemy import create_engine, orm
 from sqlalchemy.orm import sessionmaker
+
 
 class Database:
     def __init__(self, db_url: str) -> None:

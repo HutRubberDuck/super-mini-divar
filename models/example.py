@@ -1,7 +1,6 @@
-from sqlalchemy.sql.expression import null
-from sqlalchemy.orm import declarative_base, relationship
-from sqlalchemy import String, Boolean, Integer, Column, Text, ForeignKey
-from models import Base
+from sqlalchemy import String, Integer, Column
+
+from models.database import Base
 
 
 class Example(Base):
