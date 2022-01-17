@@ -19,6 +19,7 @@ Base = declarative_base()
 database = Database(environ['SUPER_MINI_DIVAR_DB_URI'])
 database.create_database()
 
+
 def get_db():
     db: Session = database.session_local
     try:
