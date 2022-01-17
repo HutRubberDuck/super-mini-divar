@@ -1,5 +1,7 @@
+from os import environ
+
 from sqlalchemy import create_engine
-from sqlalchemy.orm import declarative_base
+from sqlalchemy.orm import declarative_base, Session
 from sqlalchemy.orm import sessionmaker
 
 
@@ -13,3 +15,17 @@ class Database:
 
 
 Base = declarative_base()
+
+database = Database(environ['SUPER_MINI_DIVAR_DB_URI'])
+database.create_database()
+
+
+def get_db():
+    db: Session = database.session_local
+    try:
+        yield db
+        db.commit()
+    except Exception:
+        db.rollback()
+    finally:
+        db.close()
