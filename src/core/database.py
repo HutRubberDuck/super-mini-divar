@@ -4,6 +4,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, Session
 from sqlalchemy.orm import sessionmaker
 
+from src.core.settings import DB_URI
+
 
 class Database:
     def __init__(self, db_url: str) -> None:
@@ -16,7 +18,7 @@ class Database:
 
 Base = declarative_base()
 
-database = Database(environ['SUPER_MINI_DIVAR_DB_URI'])
+database = Database(DB_URI)
 database.create_database()
 
 
