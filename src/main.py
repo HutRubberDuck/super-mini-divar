@@ -4,6 +4,7 @@ from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from fastapi_jwt_auth import AuthJWT
 from fastapi_jwt_auth.exceptions import AuthJWTException
+from starlette.middleware.cors import CORSMiddleware
 
 from .core.database import Base, database
 from .core.openapi import defined_openapi
@@ -19,6 +20,14 @@ app = FastAPI(
     licence_info=dict(name='Apache 2.0', url='https://www.apache.org/licenses/LICENSE-2.0.html'),
     docs_url='/docs',
     redoc_url='/docs/re',
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=['*'],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 app.include_router(province.router)
