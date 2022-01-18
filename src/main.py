@@ -1,6 +1,9 @@
 from fastapi import FastAPI
 
+from .core.database import Base, database
 from .router import users, province
+
+Base.metadata.create_all(bind=database.engine)
 
 app = FastAPI(
     title='Super Mini Divar',
