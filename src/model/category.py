@@ -4,12 +4,12 @@ from sqlalchemy.orm import relationship
 from src.core.database import Base
 
 
-class Province(Base):
-    __tablename__ = 'provinces'
+class Category(Base):
+    __tablename__ = 'categories'
     id: int = Column(Integer, primary_key=True)
     name: str = Column(String(255), nullable=False)
 
-    cities = relationship("City", back_populates="province")
+    ads = relationship("Advertising", back_populates="category")
 
     def __repr__(self):
-        return f"<Province name={self.name}>"
+        return f"<Category name={self.name}>"

@@ -1,15 +1,16 @@
-from sqlalchemy import String, Integer, Column
+from sqlalchemy import Integer, Column, DateTime
 from sqlalchemy.orm import relationship
 
 from src.core.database import Base
 
 
-class Province(Base):
-    __tablename__ = 'provinces'
+class Payment(Base):
+    __tablename__ = 'payments'
     id: int = Column(Integer, primary_key=True)
-    name: str = Column(String(255), nullable=False)
+    amount: str = Column(Integer, nullable=False)
+    created_at: str = Column(DateTime, nullable=False)
 
-    cities = relationship("City", back_populates="province")
+    feature = relationship("Feature", back_populates="payment")
 
     def __repr__(self):
-        return f"<Province name={self.name}>"
+        return f"<Payment name={self.amount}>"

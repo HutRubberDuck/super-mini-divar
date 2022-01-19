@@ -1,15 +1,16 @@
-from sqlalchemy import String, Integer, Column
+from sqlalchemy import String, Integer, Column, ForeignKey
 from sqlalchemy.orm import relationship
 
 from src.core.database import Base
 
 
-class Province(Base):
-    __tablename__ = 'provinces'
+class Photo(Base):
+    __tablename__ = 'photos'
     id: int = Column(Integer, primary_key=True)
-    name: str = Column(String(255), nullable=False)
+    url: str = Column(String(512), nullable=False)
+    advertising_id: int = Column(Integer, ForeignKey("ads.id"))
 
-    cities = relationship("City", back_populates="province")
+    advertising = relationship("Advertising", back_populates="photos")
 
     def __repr__(self):
-        return f"<Province name={self.name}>"
+        return f"<Photo name={self.url}>"

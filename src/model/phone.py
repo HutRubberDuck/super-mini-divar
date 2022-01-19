@@ -1,18 +1,19 @@
-from sqlalchemy import String, Integer, Column, ForeignKey
+from sqlalchemy import String, Integer, Column, ForeignKey, Boolean, DateTime
 from sqlalchemy.orm import relationship
 
 from src.core.database import Base
 
 
-class Report(Base):
-    __tablename__ = 'reports'
+class Phone(Base):
+    __tablename__ = 'phones'
     id: int = Column(Integer, primary_key=True)
-    description: str = Column(String(255), nullable=False)
+    number: str = Column(String(10), nullable=False)
     user_id: int = Column(Integer, ForeignKey("users.id"))
-    advertising_id: int = Column(Integer, ForeignKey("ads.id"))
+    otp: str = Column(String(6), nullable=True)
+    is_verified: bool = Column(Boolean, nullable=False)
+    verified_at: bool = Column(DateTime, nullable=False)
 
-    cities = relationship("City", back_populates="province")
-    user = relationship("User", back_populates="ads")
+    user = relationship("User", back_populates="phone")
 
     def __repr__(self):
-        return f"<Report name={self.description}>"
+        return f"<Phone number={self.number}>"

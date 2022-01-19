@@ -4,12 +4,13 @@ from sqlalchemy.orm import relationship
 from src.core.database import Base
 
 
-class Province(Base):
-    __tablename__ = 'provinces'
+class FeatureType(Base):
+    __tablename__ = 'feature_types'
     id: int = Column(Integer, primary_key=True)
-    name: str = Column(String(255), nullable=False)
+    title: str = Column(String(255), nullable=False)
+    price: int = Column(Integer, nullable=False)
 
-    cities = relationship("City", back_populates="province")
+    features = relationship("Feature", back_populates="feature_type")
 
     def __repr__(self):
-        return f"<Province name={self.name}>"
+        return f"<FeatureType name={self.title}>"

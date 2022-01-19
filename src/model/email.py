@@ -4,16 +4,16 @@ from sqlalchemy.orm import relationship
 from src.core.database import Base
 
 
-class Phone(Base):
-    __tablename__ = 'phones'
+class Email(Base):
+    __tablename__ = 'emails'
     id: int = Column(Integer, primary_key=True)
-    number: str = Column(String(10), nullable=False)
+    email: str = Column(String(255), nullable=False)
     user_id: int = Column(Integer, ForeignKey("users.id"))
-    otp: str = Column(String(6), nullable=True)
+    token: str = Column(String(100), nullable=True)
     is_verified: bool = Column(Boolean, nullable=False)
     verified_at: bool = Column(DateTime, nullable=False)
 
-    user = relationship("User", back_populates="phone")
+    user = relationship("User", back_populates="email")
 
     def __repr__(self):
-        return f"<Phone number={self.number}>"
+        return f"<Email email={self.email}>"
