@@ -12,6 +12,7 @@ class City(Base):
 
     province = relationship("Province", back_populates="cities")
     districts = relationship("District", back_populates="city")
+    users = relationship("User", back_populates="city")
 
     def __repr__(self):
         return f"<City name={self.name}>"

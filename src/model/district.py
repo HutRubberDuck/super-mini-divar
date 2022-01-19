@@ -11,6 +11,7 @@ class District(Base):
     city_id: int = Column(Integer, ForeignKey("cities.id"))
 
     city = relationship("City", back_populates="districts")
+    ads = relationship("Advertising", back_populates="district")
 
     def __repr__(self):
         return f"<District name={self.name}>"
