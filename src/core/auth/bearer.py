@@ -1,8 +1,7 @@
-import jwt
 from fastapi import Request, HTTPException
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 
-from src.services.auth import decode_jwt
+from src.core.auth.token import decode_jwt
 
 
 class JWTBearer(HTTPBearer):
@@ -24,8 +23,8 @@ class JWTBearer(HTTPBearer):
     def verify_jwt(jwt_token: str) -> bool:
         try:
             payload = decode_jwt(jwt_token)
-        except jwt.ExpiredSignatureError:
-            payload = None
+        except:
+            return False
 
         if payload:
             return True

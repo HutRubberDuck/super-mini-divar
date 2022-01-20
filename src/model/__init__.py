@@ -1,4 +1,3 @@
-# from .example import Example
 from .city import City
 from .district import District
 from .province import Province
