@@ -1,6 +1,5 @@
-from os import environ
-
 from sqlalchemy import create_engine
+from sqlalchemy.exc import OperationalError
 from sqlalchemy.orm import declarative_base, Session
 from sqlalchemy.orm import sessionmaker
 
@@ -19,7 +18,11 @@ class Database:
 Base = declarative_base()
 
 database = Database(DB_URI)
-database.create_database()
+
+try:
+    database.create_database()
+except OperationalError as e:
+    print("Database Not Accessible Or Cannot Be Created")
 
 
 def get_db():
