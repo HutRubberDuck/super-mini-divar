@@ -21,3 +21,10 @@ class User(Model):
 
     def __repr__(self):
         return f"<User name={self.first_name}>"
+
+    def full_name(self):
+        return f"{self.first_name} {self.last_name}"
+
+    def age(self):
+        from datetime import datetime
+        return int((datetime.now() - datetime.strptime(self.birth_date, "%Y-%m-%d")).days / 365)
