@@ -1,10 +1,10 @@
 from sqlalchemy import String, Integer, Column, DateTime, ForeignKey
 from sqlalchemy.orm import relationship
 
-from src.core.database import Base
+from src.core.database import BaseModel
 
 
-class Advertising(Base):
+class Advertising(BaseModel):
     __tablename__ = 'ads'
     id: int = Column(Integer, primary_key=True)
     title: str = Column(String(255), nullable=False)

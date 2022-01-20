@@ -1,10 +1,10 @@
 from sqlalchemy import String, Integer, Column, ForeignKey, Boolean, DateTime
 from sqlalchemy.orm import relationship
 
-from src.core.database import Base
+from src.core.database import BaseModel
 
 
-class Email(Base):
+class Email(BaseModel):
     __tablename__ = 'emails'
     id: int = Column(Integer, primary_key=True)
     email: str = Column(String(255), nullable=False)

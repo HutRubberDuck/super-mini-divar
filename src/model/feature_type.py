@@ -1,10 +1,10 @@
 from sqlalchemy import String, Integer, Column
 from sqlalchemy.orm import relationship
 
-from src.core.database import Base
+from src.core.database import BaseModel
 
 
-class FeatureType(Base):
+class FeatureType(BaseModel):
     __tablename__ = 'feature_types'
     id: int = Column(Integer, primary_key=True)
     title: str = Column(String(255), nullable=False)
