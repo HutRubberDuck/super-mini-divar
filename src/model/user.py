@@ -1,10 +1,10 @@
 from sqlalchemy import String, Integer, Column, ForeignKey, Date, DateTime
 from sqlalchemy.orm import relationship
 
-from src.core.database import BaseModel
+from src.core.database import Model
 
 
-class User(BaseModel):
+class User(Model):
     __tablename__ = 'users'
     id: int = Column(Integer, primary_key=True)
     first_name: str = Column(String(255), nullable=False)

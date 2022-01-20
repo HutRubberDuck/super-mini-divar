@@ -1,10 +1,10 @@
 from sqlalchemy import String, Integer, Column, ForeignKey, Boolean, DateTime
 from sqlalchemy.orm import relationship
 
-from src.core.database import BaseModel
+from src.core.database import Model
 
 
-class Phone(BaseModel):
+class Phone(Model):
     __tablename__ = 'phones'
     id: int = Column(Integer, primary_key=True)
     number: str = Column(String(10), nullable=False)

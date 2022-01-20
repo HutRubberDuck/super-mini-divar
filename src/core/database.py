@@ -5,7 +5,7 @@ from sqlalchemy.orm import sessionmaker
 
 from src.core.settings import DB_URI
 
-BaseModel = declarative_base()
+Model = declarative_base()
 
 
 class Database:
@@ -14,7 +14,7 @@ class Database:
 
     @classmethod
     def create_database(cls) -> None:
-        BaseModel.metadata.create_all(bind=cls.engine)
+        Model.metadata.create_all(bind=cls.engine)
 
     @staticmethod
     def init_db() -> None:

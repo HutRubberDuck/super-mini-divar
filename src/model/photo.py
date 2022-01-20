@@ -1,10 +1,10 @@
 from sqlalchemy import String, Integer, Column, ForeignKey
 from sqlalchemy.orm import relationship
 
-from src.core.database import BaseModel
+from src.core.database import Model
 
 
-class Photo(BaseModel):
+class Photo(Model):
     __tablename__ = 'photos'
     id: int = Column(Integer, primary_key=True)
     url: str = Column(String(512), nullable=False)

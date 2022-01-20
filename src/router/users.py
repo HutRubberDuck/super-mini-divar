@@ -1,7 +1,13 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Body, Depends
 from pydantic import BaseModel
 
-router = APIRouter()
+from src.core.auth.bearer import JWTBearer
+from src.services.auth import UserSchema, sign_jwt, UserLoginSchema, check_user
+
+router = APIRouter(
+    prefix="/users",
+    tags=["users"],
+)
 
 
 class User(BaseModel):
@@ -9,16 +15,23 @@ class User(BaseModel):
     password: str
 
 
-@router.get("/users/", tags=["users"])
-async def read_users():
-    return [{"username": "Rick"}, {"username": "Morty"}]
+@router.post("/signup")
+async def create_user(user: UserSchema = Body(...)):
+    # db work
+    return sign_jwt(user.email)
 
 
-@router.get("/users/me", tags=["users"])
-async def read_user_me():
-    return {"username": "fakecurrentuser"}
+@router.post("/login")
+async def user_login(user: UserLoginSchema = Body(...)):
+    if check_user(user):
+        return sign_jwt(user.email)
+    return {
+        "error": "Wrong login details!"
+    }
 
 
-@router.get("/users/{username}", tags=["users"])
-async def read_user(username: str):
-    return {"username": username}
+@router.get("/me", dependencies=[Depends(JWTBearer())])
+async def get_user():
+    return {
+        "username": "test"
+    }

@@ -1,9 +1,9 @@
 from sqlalchemy import String, Integer, Column
 
-from src.core.database import BaseModel
+from src.core.database import Model
 
 
-class Example(BaseModel):
+class Example(Model):
     __tablename__ = 'example_tbl'
     id = Column(Integer, primary_key=True)
     title = Column(String(255), nullable=False, unique=True)

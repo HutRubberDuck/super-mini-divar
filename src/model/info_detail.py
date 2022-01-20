@@ -1,10 +1,10 @@
 from sqlalchemy import String, Integer, Column, DateTime, ForeignKey
 from sqlalchemy.orm import relationship
 
-from src.core.database import BaseModel
+from src.core.database import Model
 
 
-class InfoDetail(BaseModel):
+class InfoDetail(Model):
     __tablename__ = 'info_detail'
     id: int = Column(Integer, primary_key=True)
     title: str = Column(String(255), nullable=False)

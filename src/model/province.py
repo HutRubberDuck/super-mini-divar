@@ -1,10 +1,10 @@
 from sqlalchemy import String, Integer, Column
 from sqlalchemy.orm import relationship
 
-from src.core.database import BaseModel
+from src.core.database import Model
 
 
-class Province(BaseModel):
+class Province(Model):
     __tablename__ = 'provinces'
     id: int = Column(Integer, primary_key=True)
     name: str = Column(String(255), nullable=False)

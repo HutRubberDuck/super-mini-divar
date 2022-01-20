@@ -2,10 +2,10 @@ from sqlalchemy import String, Integer, Column, ForeignKey
 from sqlalchemy.orm import relationship
 from sqlalchemy.schema import PrimaryKeyConstraint
 
-from src.core.database import BaseModel
+from src.core.database import Model
 
 
-class Info(BaseModel):
+class Info(Model):
     __tablename__ = 'info'
 
     info_value: str = Column(String(255), nullable=False)

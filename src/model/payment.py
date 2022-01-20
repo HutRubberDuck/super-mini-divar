@@ -1,10 +1,10 @@
 from sqlalchemy import Integer, Column, DateTime
 from sqlalchemy.orm import relationship
 
-from src.core.database import BaseModel
+from src.core.database import Model
 
 
-class Payment(BaseModel):
+class Payment(Model):
     __tablename__ = 'payments'
     id: int = Column(Integer, primary_key=True)
     amount: str = Column(Integer, nullable=False)

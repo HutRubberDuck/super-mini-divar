@@ -6,7 +6,7 @@ from src.model import Province
 
 router = APIRouter(
     prefix="/province",
-    tags=["province"]
+    tags=["province"],
 )
 
 
