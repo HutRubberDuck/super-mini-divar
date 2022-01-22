@@ -14,3 +14,4 @@ from .photo import Photo
 from .province import Province
 from .report import Report
 from .user import User
+from .admin import Admin

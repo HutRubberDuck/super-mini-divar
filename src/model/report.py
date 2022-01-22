@@ -11,8 +11,8 @@ class Report(Model):
     user_id: int = Column(Integer, ForeignKey("users.id"))
     advertising_id: int = Column(Integer, ForeignKey("ads.id"))
 
-    cities = relationship("City", back_populates="province")
-    user = relationship("User", back_populates="ads")
+    advertising = relationship("Advertising", back_populates="report")
+    user = relationship("User", back_populates="reports")
 
     def __repr__(self):
         return f"<Report name={self.description}>"

@@ -17,8 +17,8 @@ class Admin(Model):
     user_id: int = Column(Integer, ForeignKey("users.id"), primary_key=True)
     admin_level = Column(Enum(AdminLevelEnum))
 
-    user = relationship("User", back_populates="ads")
-    ads = relationship("Advertising", back_populates="admin")
+    user = relationship("User", back_populates="admin")
+    advertising = relationship("Advertising", back_populates="admin")
 
     def __repr__(self):
         return f"<Admin user_id={self.user_id}>"

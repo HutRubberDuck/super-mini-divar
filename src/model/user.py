@@ -18,6 +18,8 @@ class User(Model):
     ads = relationship("Advertising", back_populates="user")
     phone = relationship("Phone", back_populates="user")
     email = relationship("Email", back_populates="user")
+    admin = relationship("Admin", back_populates="user")
+    reports = relationship("Report", back_populates="user")
 
     def __repr__(self):
         return f"<User name={self.first_name}>"
