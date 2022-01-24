@@ -26,3 +26,4 @@ watchgod==0.7
 websockets==10.1
 python-decouple==3.5
 PyJWT==1.7.1
+kavenegar==1.1.2
