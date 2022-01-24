@@ -1,7 +1,3 @@
-# divar
-
-A new Flutter project.
-
 # Super Mini Divar Flutter App
 
 A simple Flutter project for Ads And Requirements System Like Divar By [Rubber Duck](http://rubberduck.ir/)
