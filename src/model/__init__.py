@@ -1,4 +1,5 @@
 from .admin import Admin
+from .admin import Admin
 from .advertising import Advertising
 from .category import Category
 from .city import City
@@ -14,4 +15,3 @@ from .photo import Photo
 from .province import Province
 from .report import Report
 from .user import User
-from .admin import Admin
