@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session, joinedload
 
 from src.core.database import database
-from src.model import Advertising, City, District, Category
+from src.model import Advertising
 
 router = APIRouter(
     prefix="/ad",
@@ -12,14 +12,18 @@ router = APIRouter(
 
 @router.get("/")
 def get_all_ads(db_session: Session = Depends(database.get_session)):
-    return db_session.query(Advertising).join(Category).filter(Advertising.category_id == Category.id).join(
-        District).filter(District.id == Advertising.district_id).join(City).filter(District.city_id == City.id).options(
-        joinedload("district").joinedload("city")).options(joinedload("category")).all()
+    return db_session.query(Advertising) \
+        .options(joinedload("district").joinedload("city")) \
+        .options(joinedload("category")) \
+        .options(joinedload("infos").joinedload("info_detail")) \
+        .all()
 
 
 @router.get("/{advertising_id}/")
 def get_advertising_by_id(advertising_id: int, db_session: Session = Depends(database.get_session)):
-    return db_session.query(Advertising).join(Category).filter(Advertising.category_id == Category.id).join(
-        District).filter(District.id == Advertising.district_id).join(City).filter(District.city_id == City.id).options(
-        joinedload("district").joinedload("city")).options(joinedload("category")).filter(
-        Advertising.id == advertising_id).first()
+    return db_session.query(Advertising) \
+        .options(joinedload("district").joinedload("city")) \
+        .options(joinedload("category")) \
+        .options(joinedload("infos").joinedload("info_detail")) \
+        .filter(Advertising.id == advertising_id) \
+        .first()
