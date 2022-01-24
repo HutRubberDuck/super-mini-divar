@@ -1,28 +1,32 @@
-# Super Mini Divar
+# divar
 
-A simple Backend for Ads And Requirements System Like Divar By [Rubber Duck](http://rubberduck.ir/)
+A new Flutter project.
+
+# Super Mini Divar Flutter App
+
+A simple Flutter project for Ads And Requirements System Like Divar By [Rubber Duck](http://rubberduck.ir/)
 
 ### Technologies Used
-- [Python](https://www.python.org/)
-- [Fast API](https://fastapi.tiangolo.com/)
-- [SQLAlchemy](https://www.sqlalchemy.org/)
-- [Swagger](https://swagger.io/)
-- [JWT](https://jwt.io/)
-- [Docker](https://www.docker.com/)
-- [Docker Compose](https://docs.docker.com/compose/)
-- [Jenkins](https://jenkins.io/)
-- [Uvicorn](https://uvicorn.org/)
+- [Flutter](https://flutter.dev/)
+- [HTTP](https://pub.dev/packages/http/)
+- [Provider](https://pub.dev/packages/provider/)
+- [Flutter SVG](https://pub.dev/packages/flutter_svg)
+- [Persian Number Utility](https://pub.dev/packages/persian_number_utility/)
+- [Flutter Native Splash](https://pub.dev/packages/flutter_native_splash/)
 
 ### Requirements
- - python 3.8 or higher
- - docker
- - docker-compose
+ - flutter 2.5.3 or higher
 
-### How To Deploy
-- Clone this repository by running `git clone [repository_url]`
-- Run the server with `docker-compose up -d`
-- Open the server with `http://localhost:5000`
-- See Documentation with `http://localhost:5000/docs`
+### Getting Started
+
+This project is a Flutter application.
+A few resources to get you started if this is your first Flutter project:
+- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+
+For help getting started with Flutter, view our
+[online documentation](https://flutter.dev/docs), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
 
 ### How Collaborate
 - Fork this repository by running `git clone [repository_url]`
