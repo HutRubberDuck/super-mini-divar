@@ -9,7 +9,7 @@ from src.core.settings import JWT_SECRET_KEY, JWT_ALGORITHM
 def sign_jwt(user_id: str) -> Dict[str, bytes]:
     payload = {
         "user_id": user_id,
-        "expires": time.time() + 600
+        "expires": time.time() + (24 * 60 * 60)
     }
     token = jwt.encode(payload, JWT_SECRET_KEY, algorithm=JWT_ALGORITHM)
 

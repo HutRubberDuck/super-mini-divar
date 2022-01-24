@@ -7,7 +7,7 @@ def send_sms(phone, message):
     try:
         api = KavenegarAPI(OTP_API_KEY)
         response = api.sms_send({
-            'sender': '100047778',
+            'sender': '10008663',
             'receptor': phone,
             'message': message,
         })
