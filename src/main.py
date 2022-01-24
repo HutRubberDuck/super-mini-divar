@@ -3,7 +3,7 @@ from fastapi import FastAPI
 from .core.config import config
 from .core.database import database
 from .core.middleware import AppCORSMiddleware
-from .router import users, province, primary, city, district, category
+from .router import users, province, primary, city, district, category, advertising
 
 app = FastAPI(**config)
 
@@ -21,3 +21,4 @@ app.include_router(users.router)
 app.include_router(city.router)
 app.include_router(district.router)
 app.include_router(category.router)
+app.include_router(advertising.router)
